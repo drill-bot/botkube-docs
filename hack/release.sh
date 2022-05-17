@@ -1,5 +1,9 @@
 #!/bin/bash
 
+GITHUB_ORG=${GITHUB_ORG:-"infracloudio"}
+GITHUB_REPO=${GITHUB_REPO:-"botkube"}
+REPO_BRANCH=${REPO_BRANCH:-"develop"}
+
 set -e
 
 find_prev_release() {
@@ -7,7 +11,7 @@ find_prev_release() {
 }
 
 find_release() {
-    wget https://raw.githubusercontent.com/infracloudio/botkube/develop/.release
+    wget "https://raw.githubusercontent.com/${GITHUB_ORG}/${GITHUB_REPO}/${REPO_BRANCH}/.release"
     version=$(cut -d'=' -f2- .release)
     rm .release
 }
@@ -18,7 +22,7 @@ update_image_tags() {
 
 update_changelogs() {
     echo "Updating History page"
-    wget https://raw.githubusercontent.com/infracloudio/botkube/develop/CHANGELOG.md
+    wget "https://raw.githubusercontent.com/${GITHUB_ORG}/${GITHUB_REPO}/${REPO_BRANCH}/CHANGELOG.md"
     sed -i '1d' CHANGELOG.md 
     echo "---" > content/history/_index.md
     echo "title: History" >> content/history/_index.md
@@ -29,7 +33,7 @@ update_changelogs() {
 
 update_helm_options() {
     echo "Updating Helm options page"
-    wget -O helm-options.md https://raw.githubusercontent.com/infracloudio/botkube/develop/helm/botkube/README.md
+    wget -O helm-options.md "https://raw.githubusercontent.com/${GITHUB_ORG}/${GITHUB_REPO}/${REPO_BRANCH}/helm/botkube/README.md"
     sed -i '1d' helm-options.md
     echo "---" > content/configuration/helm-options.md
     echo "title: Advanced Helm Options" >> content/configuration/helm-options.md
