@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GITHUB_ORG=${GITHUB_ORG:-"infracloudio"}
+GITHUB_ORG=${GITHUB_ORG:-"drill-bot"}
 GITHUB_REPO=${GITHUB_REPO:-"botkube"}
 REPO_BRANCH=${REPO_BRANCH:-"develop"}
 
@@ -17,7 +17,7 @@ find_release() {
 }
 
 update_image_tags() {
-    find ./content/installation/ -type f -exec sed -i.bak "s/$prev_version/$version/g" {} \;
+    find ./content/installation/ -type f -name "*.md" -exec sed -i.bak "s/$prev_version/$version/g" {} \;
 }
 
 update_changelogs() {
@@ -50,7 +50,7 @@ git_tag() {
     
     echo "Creating a git tag"
     git add content/history/_index.md
-    git add content/installation/*
+    git add content/installation
     git add content/configuration/helm-options.md
     git commit -m "Release ${version}"
     git tag ${version}
