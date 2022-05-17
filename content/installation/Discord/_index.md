@@ -97,7 +97,7 @@ Follow the first 4 mins of this [Video Tutorial](https://youtu.be/8o25pRbXdFw) t
 - Deploy BotKube backend using **helm install** in your cluster
 
   ```bash
-  $ helm install --version v0.12.4 botkube --namespace botkube \
+  $ helm install --version v0.13.0 botkube --namespace botkube \
   --set communications.discord.enabled=true \
   --set communications.discord.channel=<DISCORD_CHANNEL_ID> \
   --set communications.discord.botid=<DISCORD_BOT_ID> \
@@ -105,7 +105,7 @@ Follow the first 4 mins of this [Video Tutorial](https://youtu.be/8o25pRbXdFw) t
   --set config.settings.clustername=<CLUSTER_NAME> \
   --set config.settings.kubectl.enabled=<ALLOW_KUBECTL> \
   --set image.repository=infracloudio/botkube \
-  --set image.tag=v0.12.4 \
+  --set image.tag=v0.13.0 \
   infracloudio/botkube
   ```
 
@@ -128,7 +128,7 @@ Follow the first 4 mins of this [Video Tutorial](https://youtu.be/8o25pRbXdFw) t
 
   - Create new file config.yaml and add resource configuration as described on the [configuration](/configuration) page.
 
-    (You can refer sample config from https://raw.githubusercontent.com/infracloudio/botkube/v0.12.4/helm/botkube/sample-res-config.yaml)
+    (You can refer sample config from https://raw.githubusercontent.com/infracloudio/botkube/v0.13.0/helm/botkube/sample-res-config.yaml)
 
   ```
   config:
@@ -168,7 +168,7 @@ Follow the first 4 mins of this [Video Tutorial](https://youtu.be/8o25pRbXdFw) t
     e.g
 
     ```
-    $ helm install --version v0.12.4 --name botkube --namespace botkube -f /path/to/config.yaml --set=...other args..
+    $ helm install --version v0.13.0 --name botkube --namespace botkube -f /path/to/config.yaml --set=...other args..
     ```
 
   Alternatively, you can also update the configuration at runtime as documented [here](/configuration/#updating-the-configuration-at-runtime)
@@ -180,7 +180,7 @@ Follow the first 4 mins of this [Video Tutorial](https://youtu.be/8o25pRbXdFw) t
 - Download deployment specs yaml
 
 ```bash
-$ wget -q https://raw.githubusercontent.com/infracloudio/botkube/v0.12.4/deploy-all-in-one.yaml
+$ wget -q https://raw.githubusercontent.com/infracloudio/botkube/v0.13.0/deploy-all-in-one.yaml
 ```
 
 - Open downloaded **deploy-all-in-one.yaml** and update the configuration.<br>
@@ -222,6 +222,6 @@ $ helm delete --purge botkube
 #### Using kubectl
 
 ```bash
-$ kubectl delete -f https://raw.githubusercontent.com/infracloudio/botkube/v0.12.4/deploy-all-in-one.yaml
+$ kubectl delete -f https://raw.githubusercontent.com/infracloudio/botkube/v0.13.0/deploy-all-in-one.yaml
 ```
 
