@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GITHUB_ORG=${GITHUB_ORG:-"infracloudio"}
+GITHUB_ORG=${GITHUB_ORG:-"drill-bot"}
 GITHUB_REPO=${GITHUB_REPO:-"botkube"}
 REPO_BRANCH=${REPO_BRANCH:-"develop"}
 
